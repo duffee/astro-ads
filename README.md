@@ -1,4 +1,5 @@
 # astro-ads
+
 Perl interface to the Astrophysics Data System (ADS) abstract service
 
 
@@ -15,3 +16,24 @@ Perl interface to the Astrophysics Data System (ADS) abstract service
 ## Acknowledgements
 
 I've been cribbing documentation from Andy Casey's [notes](https://github.com/adsabs/ads)
+
+# Authors
+
+Re-write for ADS Bumblebee by Boyd Duffee, b dot duffee at keele dot ac dot uk.
+
+Originally written by Alasdair Allan
+<aa@astro.ex.ac.uk>, of the University of Exeter Astrophysics Group
+(http://www.astro.ex.ac.uk/) as part of his work for the eSTAR project
+with Tim Jenness <timj@jach.hawaii.edu> of the Joint Astronomy Centre (JAC)
+in Hawaii.
+
+
+# Terms and Conditions
+
+Use of this library implies acceptance of the terms and conditions of use
+of the Astrophysical Data Service (ADS) Abstract Service, for full details
+see http://adswww.harvard.edu/use.html
+
+# License
+
+Astro::ADS is licensed under the MIT licence. 
