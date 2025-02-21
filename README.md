@@ -1,6 +1,6 @@
 # astro-ads
 
-Perl interface to the Astrophysics Data System (ADS) abstract service
+Perl interface to the Harvard Astrophysics Data System (ADS) abstract service
 
 
 ## Getting Started
@@ -19,7 +19,7 @@ I've been cribbing documentation from Andy Casey's [notes](https://github.com/ad
 
 # Authors
 
-Re-write for ADS Bumblebee by Boyd Duffee, b dot duffee at keele dot ac dot uk.
+Re-write for ADS Bumblebee by [Boyd Duffee](https://github.com/duffee)
 
 Originally written by Alasdair Allan
 <aa@astro.ex.ac.uk>, of the University of Exeter Astrophysics Group

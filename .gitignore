@@ -1,35 +1,38 @@
-!Build/
-.last_cover_stats
-/META.yml
-/META.json
-/MYMETA.*
-*.o
+# Perl Tidy
 *.pm.tdy
-*.bs
-
-# Devel::Cover
-cover_db/
-
-# Devel::NYTProf
-nytprof.out
-
-# Dizt::Zilla
-/.build/
-
-# Module::Build
-_build/
-Build
-Build.bat
-
-# Module::Install
-inc/
 
 # ExtUitls::MakeMaker
-/blib/
 /_eumm/
 /*.gz
-/Makefile
-/Makefile.old
-/MANIFEST.bak
 /pm_to_blib
 /*.zip
+.DS_Store
+.env
+.envrc
+local/
+tmp_datastore/
+logs/*
+
+# Gitignore for vim: https://github.com/github/gitignore/blob/master/Global/vim.gitignore
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Gitignore for perl: https://github.com/github/gitignore/blob/master/Perl.gitignore
+blib/
+.build/
+_build/
+cover_db/
+inc/
+Build
+!Build/
+Build.bat
+.last_cover_stats
+Makefile
+Makefile.old
+MANIFEST.bak
+META.yml
+MYMETA.yml
+nytprof.out
+pm_to_blib
