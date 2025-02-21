@@ -3,7 +3,7 @@ package Astro::ADS;
 use Moo;
 
 use Carp;
-use Data::Dumper;
+use Data::Dumper::Concise;
 use Feature::Compat::Try;
 use Mojo::Base -strict;
 use Mojo::URL;
