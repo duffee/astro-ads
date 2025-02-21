@@ -1,4 +1,5 @@
 package Astro::ADS::Result;
+# ABSTRACT: A class for the results of a Search
 
 use Moo;
 #extends 'Astro::ADS';
@@ -83,33 +84,23 @@ sub get_papers {
     return @{$self->docs};
 }
 
-=head2 summary
-
-To Be Decided:
-This is a hold over from v1.0 which gets the summary for each document.
-Should we ditch it?
-
-sub summary {
-    my $self = shift;
-    for my $paper ( $self->get_papers ) {
-        $paper->summary;
-    }
-}
-
-sub sizeof {
-    my $self = shift;
-    return $self->numFound; # or should it be $self->rows ?
-}
-
-=cut
+#To Be Decided:
+#This is a hold over from v1.0 which gets the summary for each document.
+#Should we ditch it?
+#
+#sub summary {
+#    my $self = shift;
+#    for my $paper ( $self->get_papers ) {
+#        $paper->summary;
+#    }
+#}
+#
+#sub sizeof {
+#    my $self = shift;
+#    return $self->numFound; # or should it be $self->rows ?
+#}
 
 1;
-
-__END__
-
-=head1 NAME
-
-    Astro::ADS::Result
 
 =head1 SYNOPSIS
 

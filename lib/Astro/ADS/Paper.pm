@@ -1,4 +1,5 @@
 package Astro::ADS::Paper;
+# ABSTRACT: A class for holding the document attributes for the results of a Search
 
 use Moo;
 
@@ -72,25 +73,7 @@ sub summary {
         $self->published;
 }
 
-=head2 Methods
-
-v1 had the following
-* references
-* citations
-* alsoread
-* tableofcontents
-
-all of which grepped $self->links for either REFERENCES, CITATIONS, AR or TOC
-
-=cut
-
 1;
-
-__END__
-
-=head1 NAME
-
-    Astro::ADS::Paper
 
 =head1 SYNOPSIS
 
@@ -130,5 +113,17 @@ Allowed: abstract ┃ ack ┃ aff ┃ aff_id ┃ alternate_bibcode ┃ alternate
 Given this list is 81 fields, it doesn't make sense to create that many empty attributes.
 
 The full list is at https://ui.adsabs.harvard.edu/help/search/comprehensive-solr-term-list
+
+=head1 TODO
+
+v1 had the following methods
+* references
+* citations
+* alsoread
+* tableofcontents
+
+all of which grepped $self->links for either REFERENCES, CITATIONS, AR or TOC
+
+These are returned in the links_data field, but we should be using the Links service to get this data
 
 =cut

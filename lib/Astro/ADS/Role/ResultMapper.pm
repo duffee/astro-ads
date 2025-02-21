@@ -1,4 +1,6 @@
 package Astro::ADS::Role::ResultMapper;
+# ABSTRACT: Maps the JSON structure returned from an ADS search query
+# to a Astro::ADS::Result object
 
 use Moo::Role;
 use strictures 2;
@@ -28,10 +30,6 @@ sub parse_response {
 
     return Astro::ADS::Result->new( $result_params );
 }
-
-=head1 NAME
-
-    Astro::ADS::Role::ResultMapper
 
 =head1 SYNOPSIS 
 

@@ -1,4 +1,6 @@
 package Astro::ADS;
+# ABSTRACT: Perl library to connect with the Harvard Astrophysical Data Service
+# https://ads.harvard.edu/
 
 use Moo;
 
@@ -73,13 +75,7 @@ sub post_response {
     return $tx->result;
 }
 
-1;
-
-__END__
-
-=head1 NAME
-
-    Astro::ADS
+1; # Perl is my Igor
 
 =head1 SYNOPSIS
 
@@ -91,7 +87,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Astro::ADS is the base class for accessing the Harvard Astrophysical Data Service API.
+Astro::ADS is the base class for accessing the ADS API.
 
 It handles methods common to all services such as setting the UserAgent and
 including your API key in all request headers.

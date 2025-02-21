@@ -1,4 +1,5 @@
 package Astro::ADS::Search;
+# ABSTRACT: Queries the ADS Search endpoint and collects the results
 
 use Moo;
 extends 'Astro::ADS';
@@ -158,12 +159,6 @@ sub add_objects {
 }
 
 1;
-
-__END__
-
-=head1 NAME
-
-    Astro::ADS::Search
 
 =head1 SYNOPSIS
 
