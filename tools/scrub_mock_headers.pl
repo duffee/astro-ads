@@ -7,8 +7,6 @@
 # by putting this script into .git/hooks/pre-commit
 # https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 # https://stackoverflow.com/questions/57591839/how-can-i-commit-git-hooks
-#
-# PODNAME: scrub_mock_headers.pl
 
 use v5.20;
 
