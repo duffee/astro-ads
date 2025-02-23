@@ -11,9 +11,9 @@ use Mojo::Base -strict;
 use Mojo::URL;
 use Mojo::UserAgent;
 
-no warnings 'experimental'; # suppress warning for native perl 5.36 try/catch
+# suppress warning for native perl 5.36 try/catch
+no if $] >= 5.018, 'warnings', 'experimental';
 
-#use constant SESSION_DURATION_SECS => 3600; # 60 min
 my $DEBUG = 0;
 
 has ua    => ( is => 'lazy' );

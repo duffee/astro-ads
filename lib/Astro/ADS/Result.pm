@@ -14,8 +14,6 @@ use Mojo::Util qw( quote );
 use PerlX::Maybe;
 use Types::Standard qw( Int Str ArrayRef HashRef Bool ); # InstanceOf ConsumerOf
 
-no warnings 'experimental'; # suppress warning for native perl 5.36 try/catch
-
 has [qw/q fq fl sort/] => (
     is       => 'rw',
     isa      => Str,

@@ -9,8 +9,6 @@ use Mojo::Base -strict; # do we want -signatures
 use PerlX::Maybe;
 use Types::Standard qw( Int Str StrMatch ArrayRef HashRef Any ); # InstanceOf ConsumerOf
 
-no warnings 'experimental'; # suppress warning for native perl 5.36 try/catch
-
 #declare "Bibcode",
 #   was StrMatch[ qr{^\d{4} [\w.&]{5} [\d.]{4} [ELP-Z\d.] [\d.]{4} [A-Z]$}x ];
 #   now StrMatch[ qr{^\d{4} [\w.&]{5} [\d.]{4} [AELP-Z\d.] [\d.]{3}[B\d] [A-Z]$}x ];
