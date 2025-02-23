@@ -145,13 +145,13 @@ If given an argument, it takes that as the number of rows to fetch.
 
 =over 4
 
-=item *L<Astro::ADS>
+=item * L<Astro::ADS>
 
-=item *L<Astro::ADS::Search>
+=item * L<Astro::ADS::Search>
 
-=item *L<ADS API|https://ui.adsabs.harvard.edu/help/api/>
+=item * L<ADS API|https://ui.adsabs.harvard.edu/help/api/>
 
-=item *L<Available fields for Results|https://ui.adsabs.harvard.edu/help/search/comprehensive-solr-term-list>
+=item * L<Available fields for Results|https://ui.adsabs.harvard.edu/help/search/comprehensive-solr-term-list>
 
 =back
 

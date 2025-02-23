@@ -228,13 +228,13 @@ available with the author and title fields
 
 =over 4
 
-=item *L<Astro::ADS>
+=item * L<Astro::ADS>
 
-=item *L<Astro::ADS::Result>
+=item * L<Astro::ADS::Result>
 
-=item *L<ADS API|https://ui.adsabs.harvard.edu/help/api/>
+=item * L<ADS API|https://ui.adsabs.harvard.edu/help/api/>
 
-=item *L<Search Syntax|https://ui.adsabs.harvard.edu/help/search/search-syntax>
+=item * L<Search Syntax|https://ui.adsabs.harvard.edu/help/search/search-syntax>
 
 =back
 
