@@ -1,4 +1,5 @@
 use Test2::V0;
+use Test2::Tools::Exception qw( dies );
 
 use lib qw|t/lib|;
 
@@ -14,7 +15,7 @@ use Astro::ADS::Search;
 use Data::Dumper::Concise;
 
 subtest 'Bad Key error in Result' => sub {
-    local $ENV{ADS_DEV_KEY} = 'BAD_TOKEN';
+    local $ENV{ADS_DEV_KEY} = 'BAD_TOKEN' . 'x' x 20;
     my $search = Astro::ADS::Search->new( q => 'dark matter', fl => 'author,keyword', rows => 100, ua => $ua);
 
     my $result;
@@ -42,6 +43,33 @@ subtest 'Bad Key error in Result' => sub {
         qr/^Empty Result object: $expected_error/,  # my error message
         'Sensible warning when acting on a Result with an error'
     );
+};
+
+subtest 'Token construction' => sub {
+    local $ENV{ADS_DEV_KEY} = undef;
+    local $ENV{HOME} = '/homeless';
+
+    my %options = ( q => 'star', fl => 'bibcode' );
+    my $ads = Astro::ADS->new( %options );
+    like(
+        dies { $ads->token },
+        qr/^You need to provide an API token/,  # my error message
+        'Warning of no token'
+    );
+
+    $ENV{ADS_DEV_KEY} = "xxxxxxxxxxxxxxxxxxxxxxxxxx\n";
+    $ads = Astro::ADS->new( %options );
+    like(
+        dies { $ads->token },
+        qr/Value ".*" did not pass type constraint/,
+        'Invalid token provided'
+    );
+
+    my @chars = ('a' .. 'z', 'A' .. 'Z', 0 .. 9);
+    my $new_token = join "", map { @chars[rand(@chars)] } 1 .. 40;
+    $ENV{ADS_DEV_KEY} = $new_token;
+    $ads = Astro::ADS->new( %options );
+    is $ads->token, $new_token, '40 char key is valid';
 };
 
 =pod Can't seem to engineer a timeout

@@ -10,6 +10,7 @@ use Feature::Compat::Try;
 use Mojo::Base -strict;
 use Mojo::URL;
 use Mojo::UserAgent;
+use Types::Standard qw( StrMatch );
 
 # suppress warning for native perl 5.36 try/catch
 no if $] >= 5.018, 'warnings', 'experimental';
@@ -18,7 +19,7 @@ my $DEBUG = 0;
 
 has ua    => ( is => 'lazy' );
 has proxy => ( is => 'lazy' );
-has token => ( is => 'lazy' );
+has token => ( is => 'lazy', isa => StrMatch[qr/\A\w{20,50}\z/] );
 
 has base_url => (
     is      => 'ro',
@@ -40,7 +41,6 @@ sub _build_token {
     my ($self) = @_;
 
     return $ENV{ADS_DEV_KEY} if $ENV{ADS_DEV_KEY};
-    $DB::single = 1;
 
     # consider using File::HomeDir
     my $dev_key_file = Mojo::File->new($ENV{HOME} . '/.ads/dev_key');
@@ -50,8 +50,7 @@ sub _build_token {
         return $key;
     }
 
-    carp 'You need to provide an API token';
-    return;
+    croak 'You need to provide an API token';
 }
 
 sub get_response {
@@ -120,8 +119,10 @@ including your API key in all request headers.
 =head2 Getting Started
 
 If you don't have one already, you will need to register an
-L<ADS account|https://ui.adsabs.harvard.edu/user/account/register>
-and generate an L<API token|https://ui.adsabs.harvard.edu/user/settings/token> .
+L<ADS account|https://ui.adsabs.harvard.edu/user/account/register> .
+Generate an L<API token|https://ui.adsabs.harvard.edu/user/settings/token> and
+put it in an environment variable named C<ADS_DEV_KEY> or in a file under your
+home directory, B<~/.ads/dev_key>.
 
 Find more help on the L<Quick Start|https://ui.adsabs.harvard.edu/help/api/> page.
 
