@@ -2,6 +2,7 @@ use Test2::V0;
 use Test2::Tools::Exception qw( dies );
 
 use lib qw|t/lib|;
+use Test::Astro::ADS;
 
 BEGIN {
     $ENV{ LWP_UA_MOCK } ||= 'playback';
