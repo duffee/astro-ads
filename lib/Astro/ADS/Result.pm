@@ -30,7 +30,7 @@ has [qw/start rows/] => (
 );
 has error => (
     is       => 'rw',
-    isa      => Str,
+    isa      => HashRef[]
 );
 has docs => (
     is      => 'rw',
@@ -44,7 +44,7 @@ has docs => (
 before [qw/numFound numFoundExact start rows docs/] => sub {
    my ($self) = @_;
    if ($self->error ) {
-       carp 'Empty Result object: ', $self->error;
+       carp 'Empty Result object: ', $self->error->{message};
    }
 };
 

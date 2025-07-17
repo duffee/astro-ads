@@ -17,13 +17,21 @@ use Data::Dumper::Concise;
 
 subtest 'Bad Key error in Result' => sub {
     local $ENV{ADS_DEV_KEY} = 'BAD_TOKEN' . 'x' x 20;
-    my $search = Astro::ADS::Search->new( q => 'dark matter', fl => 'author,keyword', rows => 100, ua => $ua);
+    my %query = (q => 'dark matter', fl => 'author,keyword', rows => 100);
+    my $search = Astro::ADS::Search->new( %query, ua => $ua);
 
     my $result;
-    my $expected_error = 'UNAUTHORIZED';
+    my $error_message  = 'UNAUTHORIZED';
+    my $expected_error = hash {
+        field message => $error_message;
+        field query   => \%query;
+        field url     => check_isa 'Mojo::URL';
+        end();
+    };
+
     like(
         warnings { $result = $search->query() }, # DEBUG = 0
-        [qr/HTTP Error: $expected_error/],       # my error message
+        [qr/HTTP Error: $error_message/],       # my error message
         #warnings { $result = $search->query() },
         #[
             #qr{^GET /v1/search/query.+Authorization: Bearer BAD_TOKEN}s, # DEBUG request
@@ -41,7 +49,7 @@ subtest 'Bad Key error in Result' => sub {
 
     like(
         warning { $result->rows() },
-        qr/^Empty Result object: $expected_error/,  # my error message
+        qr/^Empty Result object: $error_message/,  # my error message
         'Sensible warning when acting on a Result with an error'
     );
 };

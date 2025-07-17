@@ -64,7 +64,12 @@ sub query {
     my $response = $self->get_response( $url );
     if ( $response->is_error ) {
         carp $response->message;
-        return Astro::ADS::Result->new( {error => $response->message} );
+        my $error_obj = {
+            message => $response->message,
+            query   => $search_terms,
+            url     => $url,
+        };
+        return Astro::ADS::Result->new( {error => $error_obj} );
     }
 
     my $json = $response->json;
