@@ -1,5 +1,4 @@
 package Astro::ADS::Paper;
-# ABSTRACT: A class for holding the document attributes for the results of a Search
 
 use Moo;
 
@@ -73,6 +72,18 @@ sub summary {
 
 1;
 
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Astro::ADS::Paper - A class for holding the document attributes for the results of a Search
+
+=head1 VERSION
+
+version 1.90
+
 =head1 SYNOPSIS
 
     my $result = $search->query();
@@ -123,5 +134,13 @@ v1 had the following methods
 all of which grepped $self->links for either REFERENCES, CITATIONS, AR or TOC
 
 These are returned in the links_data field, but we should be using the Links service to get this data
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2025 by Boyd Duffee.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
 
 =cut

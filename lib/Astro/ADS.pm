@@ -1,6 +1,4 @@
 package Astro::ADS;
-# ABSTRACT: Perl library to connect with the Harvard Astrophysical Data Service
-# https://ads.harvard.edu/
 
 use Moo;
 
@@ -50,7 +48,7 @@ sub _build_token {
         return $key;
     }
 
-    croak 'You need to provide an API token';
+    croak "You need to provide an API token.\nSee https://metacpan.org/pod/Astro::ADS#Getting-Started\n";
 }
 
 sub get_response {
@@ -95,6 +93,18 @@ sub post_response {
 
 1; # Perl is my Igor
 
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Astro::ADS - Perl library to connect with the Harvard Astrophysical Data Service
+
+=head1 VERSION
+
+version 1.90
+
 =head1 SYNOPSIS
 
     my $client = Astro::ADS->new({
@@ -138,5 +148,13 @@ To acknowledge the ADS in a publication, refer to the text at the
 bottom of L<About ADS|https://ui.adsabs.harvard.edu/about/>.
 To acknowlegde use of this module, it will be sufficient to mention
 I<Perl's Astro::ADS is available at https://metacpan.org/pod/Astro::ADS>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2025 by Boyd Duffee.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
 
 =cut

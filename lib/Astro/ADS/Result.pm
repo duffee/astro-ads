@@ -1,8 +1,6 @@
 package Astro::ADS::Result;
-# ABSTRACT: A class for the results of a Search
 
 use Moo;
-#extends 'Astro::ADS';
 
 use Carp;
 use Data::Dumper::Concise;
@@ -100,6 +98,18 @@ sub get_papers {
 
 1;
 
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Astro::ADS::Result - A class for the results of a Search
+
+=head1 VERSION
+
+version 1.90
+
 =head1 SYNOPSIS
 
     my $search = Astro::ADS::Search->new(...);
@@ -154,5 +164,13 @@ If given an argument, it takes that as the number of rows to fetch.
 =item * L<Available fields for Results|https://ui.adsabs.harvard.edu/help/search/comprehensive-solr-term-list>
 
 =back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2025 by Boyd Duffee.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
 
 =cut

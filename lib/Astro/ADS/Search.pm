@@ -1,5 +1,4 @@
 package Astro::ADS::Search;
-# ABSTRACT: Queries the ADS Search endpoint and collects the results
 
 use Moo;
 extends 'Astro::ADS';
@@ -158,6 +157,18 @@ sub add_objects {
 
 1;
 
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Astro::ADS::Search - Queries the ADS Search endpoint and collects the results
+
+=head1 VERSION
+
+version 1.90
+
 =head1 SYNOPSIS
 
     my $search = Astro::ADS::Search->new({
@@ -237,5 +248,13 @@ available with the author and title fields
 =item * L<Search Syntax|https://ui.adsabs.harvard.edu/help/search/search-syntax>
 
 =back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2025 by Boyd Duffee.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
 
 =cut

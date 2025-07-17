@@ -1,6 +1,4 @@
 package Astro::ADS::Role::ResultMapper;
-# ABSTRACT: Maps the JSON structure returned from an ADS search query
-# to a Astro::ADS::Result object
 
 use Moo::Role;
 use strictures 2;
@@ -31,6 +29,21 @@ sub parse_response {
     return Astro::ADS::Result->new( $result_params );
 }
 
+1;
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Astro::ADS::Role::ResultMapper - Maps the JSON structure returned from an ADS search query
+to an Astro::ADS::Result object
+
+=head1 VERSION
+
+version 1.90
+
 =head1 SYNOPSIS 
 
     use Moo;
@@ -45,6 +58,12 @@ sub parse_response {
 Takes the Mojo Response JSON and maps it to the Result object parameters,
 returning a Result object with Papers in the B<docs> attribute.
 
-=cut
+=head1 COPYRIGHT AND LICENSE
 
-1;
+This software is Copyright (c) 2025 by Boyd Duffee.
+
+This is free software, licensed under:
+
+  The MIT (X11) License
+
+=cut

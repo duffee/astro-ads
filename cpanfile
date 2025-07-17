@@ -1,5 +1,7 @@
 # https://metacpan.org/pod/distribution/Module-CPANfile/lib/cpanfile.pod
 
+requires 'perl' => '5.004';
+
 requires 'Data::Dumper::Concise';
 requires 'Feature::Compat::Try';
 requires 'Mojolicious';
@@ -16,7 +18,7 @@ on test => sub {
     requires 'Test2::V0';
 
     requires 'Mojo::UserAgent::Mockable';
-    requires 'Test2::Tools::Compare';
+    requires 'Test2::Tools::Compare'    => '1.302196'; # number_gt available Apr 2023
 };
 
 on 'develop' => sub {
@@ -29,7 +31,6 @@ on 'develop' => sub {
   recommends 'Dist::Zilla::PluginBundle::Git';
   recommends 'Dist::Zilla::Plugin::GithubMeta';
   recommends 'Dist::Zilla::Plugin::NextRelease';
-  recommends 'Dist::Zilla::Plugin::PodWeaver';
 
   # these were missing when I tried to dzil test
   recommends 'Dist::Zilla::Plugin::MetaProvides::Package';
