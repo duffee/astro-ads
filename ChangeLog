@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+1.90_70   2025 Jul 18 (TRIAL RELEASE)
 ====
 * error attribute for Result object now a hash for better reporting
 * adding a test module to provide a mocked dev key
