@@ -15,7 +15,7 @@ requires 'strictures';
 requires 'Types::Standard';
 
 on test => sub {
-    requires 'Test2::V0';
+    requires 'Test2::V0' => '0.000139'; # isa checks
 
     requires 'Mojo::UserAgent::Mockable';
     requires 'Test2::Tools::Compare'    => '1.302196'; # number_gt available Apr 2023
