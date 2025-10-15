@@ -77,11 +77,11 @@ sub get_response {
 }
 
 sub post_response {
-    my ($self, $url) = @_;
+    my ($self, $url, $hash) = @_;
 
-    my $tx = $self->ua->build_tx( POST => $url );
+    my $tx = $self->ua->build_tx( POST => $url, json => $hash );
     $tx->req->headers->authorization( 'Bearer ' . $self->token );
-    carp $tx->req->to_string if $DEBUG;
+    carp "Request sent to $url\n\n", $tx->req->to_string if $DEBUG;
    
     try { $tx = $self->ua->start($tx) }
     catch ($error) {
