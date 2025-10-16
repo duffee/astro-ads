@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+1.91      2025 Oct 16
 ===
 * Citation Metrics Report - added all 3 endpoints
 * fixed post_response method in Astro::ADS to send json payload
