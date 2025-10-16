@@ -42,7 +42,7 @@ to an Astro::ADS::Result object
 
 =head1 VERSION
 
-version 1.90
+version 1.91
 
 =head1 SYNOPSIS 
 

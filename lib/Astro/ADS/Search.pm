@@ -172,7 +172,7 @@ Astro::ADS::Search - Queries the ADS Search endpoint and collects the results
 
 =head1 VERSION
 
-version 1.90
+version 1.91
 
 =head1 SYNOPSIS
 

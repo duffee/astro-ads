@@ -106,7 +106,7 @@ version 1.91
 =head1 SYNOPSIS
 
     my $metrics = Astro::ADS::Metrics->new({
-        bibcodes  => ['...'],  # list of bibcodes 
+        bibcodes  => ['...'],  # list of bibcodes
         { types => ['basic'] } # types of metrics to return
     });
 
@@ -119,7 +119,7 @@ version 1.91
 
 =head1 DESCRIPTION
 
-Fetch Metrics for papers in the Harvard ADS 
+Fetch Metrics for papers in the Harvard ADS
 
 Currently only C<fetch> checks the Metrics object for
 how to make the calls.

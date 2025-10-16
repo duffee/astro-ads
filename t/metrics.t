@@ -47,7 +47,7 @@ subtest 'Fetch metrics' => sub {
 };
 
 subtest 'Get basic metrics for multiple bibcodes' => sub {
-    ok my $result = $metrics->batch( 
+    ok my $result = $metrics->batch(
         ['2003ApJS..148..175S', '2007ApJS..170..377S'],
         { types => ['basic'] }
     ), 'Batch fetch metrics';
@@ -85,7 +85,7 @@ subtest 'Get basic metrics for multiple bibcodes' => sub {
 };
 
 subtest 'Get data for a single histogram for multiple bibcodes' => sub {
-    ok my $result = $metrics->batch( 
+    ok my $result = $metrics->batch(
         ['2003ApJS..148..175S', '2007ApJS..170..377S'],
         { types    => ['histograms'], histograms => ['citations'] }
     ), 'Fetch histogram';
