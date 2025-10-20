@@ -9,6 +9,8 @@ BEGIN {
     $ENV{ LWP_UA_MOCK_FILE } ||= __FILE__.'-lwp-mock.out';
 }
 
+skip_all('No API key found in test suite') unless $ENV{ADS_DEV_KEY};
+
 use Astro::ADS::Search;
 use Data::Dumper::Concise;
 use Mojo::UserAgent::Mockable;
