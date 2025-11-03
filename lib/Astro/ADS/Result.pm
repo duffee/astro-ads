@@ -56,7 +56,7 @@ sub next {
         carp "No more results for ", $self->q, "\n";
         return;
     }
-    elsif ( $num && ! $num > 0 ) {
+    elsif ( $num && !($num > 0) ) {
         carp sprintf('Bad value for number of rows: %d. Defaulting to %d', $num, $self->rows);
         $num = 0;
     }
