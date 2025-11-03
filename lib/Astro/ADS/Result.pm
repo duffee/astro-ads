@@ -57,7 +57,7 @@ sub next {
         return;
     }
     elsif ( $num && !($num > 0) ) {
-        carp sprintf('Bad value for number of rows: %d. Defaulting to %d', $num, $self->rows);
+        carp sprintf('Bad value for number of rows: %s. Defaulting to %d', $num, $self->rows);
         $num = 0;
     }
 
