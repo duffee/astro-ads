@@ -78,11 +78,13 @@ sub query {
 
 sub query_tree {
     my ($self, $terms) = @_;
-    carp "Not implemented yet"; return;
 
     my $url = $self->base_url->path('search/qtree');
     $url->query( { q => $self->q, fl => $self->fl } );
-    return $self->get_result( $url );
+    my $response = $self->get_response( $url );
+
+    my $qtree = $self->parse_qtree_response( $response );
+    return $qtree;
 }
 
 sub bigquery {
@@ -91,7 +93,7 @@ sub bigquery {
 
     my $url = $self->base_url->path('search/bigquery');
     $url->query( { q => $self->q, fl => $self->fl } );
-    #return $self->post_result( $url );
+    return $self->post_response( $url, $terms );
 }
 
 sub gather_search_terms {

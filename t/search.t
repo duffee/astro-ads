@@ -99,4 +99,36 @@ subtest 'Search terms' => sub {
         'Building Search terms from accessors';
 };
 
+subtest 'Query tree object' => sub {
+    ok my $result = $ads->query_tree(), 'Call to query_tree ok';
+
+    is $result, object {
+        prop isa => 'Astro::ADS::QTree';
+
+        field qtime  => match qr/^\d$/;
+        field qtree  => T();
+        field status => 0;
+
+        field asset => check_isa('Mojo::Asset::Memory');
+
+        end();
+    },
+    'query_tree returns QTree object';
+
+
+    my $ast = <<"AST";
+\n{\"name\":\"OPERATOR\", \"label\":\"DEFOP\", \"children\": [\n    {\"name\":\"MODIFIER\", \"label\":\"MODIFIER\", \"children\": [\n        {\"name\":\"TMODIFIER\", \"label\":\"TMODIFIER\", \"children\": [\n            {\"name\":\"FIELD\", \"label\":\"FIELD\", \"children\": [\n                {\"name\":\"QNORMAL\", \"label\":\"QNORMAL\", \"children\": [\n                    {\"name\":\"TERM_NORMAL\", \"input\":\"star\", \"start\":0, \"end\":3}]\n                }]\n            }]\n        }]\n    }]
+}
+AST
+    chomp $ast;
+    is $result->qtree, $ast, 'Got the AST';
+
+    todo 'Can write to a file' => sub {
+        my $tmpfile = 't/qtree_tmpfile.json';
+        ok $result->move_to( $tmpfile ), 'Can move_to';
+        is -s $tmpfile, 577, 'Temp file written';
+        unlink $tmpfile;
+    };
+};
+
 done_testing();

@@ -145,8 +145,11 @@ the publications found through this API. Please refer to the
 L<ADS Terms and Conditions of Use|http://adsabs.github.io/help/terms/>
 
 To acknowledge the ADS in a publication, refer to the text at the
-bottom of L<About ADS|https://ui.adsabs.harvard.edu/about/>.
-To acknowlegde use of this module, it will be sufficient to mention
+bottom of L<About ADS|https://ui.adsabs.harvard.edu/about/>, which suggests:
+I<“This research has made use of the Astrophysics Data System,
+funded by NASA under Cooperative Agreement 80NSSC21M0056.”>
+
+To acknowledge use of this module, it will be sufficient to mention
 I<Perl's Astro::ADS is available at https://metacpan.org/pod/Astro::ADS>
 
 =head1 COPYRIGHT AND LICENSE
