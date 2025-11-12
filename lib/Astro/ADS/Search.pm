@@ -79,7 +79,7 @@ sub query {
 sub query_tree {
     my ($self, $terms) = @_;
 
-    my $url = $self->base_url->path('search/qtree');
+    my $url = $self->base_url->clone->path('search/qtree');
     $url->query( { q => $self->q, fl => $self->fl } );
     my $response = $self->get_response( $url );
 
@@ -88,12 +88,17 @@ sub query_tree {
 }
 
 sub bigquery {
-    my ($self, $terms) = @_;
-    carp "Not implemented yet"; return;
+    my ($self, @bibcodes) = @_;
 
-    my $url = $self->base_url->path('search/bigquery');
+    my $bibcode_list = join "\n", 'bibcode', @bibcodes;
+
+    my $url = $self->base_url->clone->path('search/bigquery');
+    #TODO why the parameters in the query?
     $url->query( { q => $self->q, fl => $self->fl } );
-    return $self->post_response( $url, $terms );
+    my $response = $self->post_response( $url, $bibcode_list );
+
+    my $json = $response->json;
+    return $self->parse_response( $json );
 }
 
 sub gather_search_terms {
@@ -227,13 +232,9 @@ deleted if the query attribute is updated.
 
 =head2 query_tree
 
-B<Not implemented yet>
-
 Will return the L<Abstract Syntax Tree|https://ui.adsabs.harvard.edu/help/api/api-docs.html#get-/search/qtree> for the query.
 
 =head2 bigquery
-
-B<Not implemented yet>
 
 Accepts a L<list of many IDs|https://ui.adsabs.harvard.edu/help/api/api-docs.html#post-/search/bigquery> and supports paging.
 

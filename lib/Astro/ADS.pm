@@ -77,9 +77,13 @@ sub get_response {
 }
 
 sub post_response {
-    my ($self, $url, $hash) = @_;
+    my ($self, $url, $content) = @_;
 
-    my $tx = $self->ua->build_tx( POST => $url, json => $hash );
+    # this will work until we need to do form submission
+    # hashrefs are sent as JSON
+    my $tx = ref $content eq 'HASH'
+        ? $self->ua->build_tx( POST => $url, json => $content )
+        : $self->ua->build_tx( POST => $url, $content );
     $tx->req->headers->authorization( 'Bearer ' . $self->token );
     carp "Request sent to $url\n\n", $tx->req->to_string if $DEBUG;
    
@@ -88,7 +92,17 @@ sub post_response {
         carp "Got this error: ", $error;
     }
 
-    return $tx->result;
+    my $res;
+    try { $res = $tx->result } # call to result dies on connection error
+    catch ($error) {
+        carp "Connection error: ", $error;
+        return;
+    }
+    if    ($res->is_success)  { warn $res->body if $DEBUG > 1 }
+    elsif ($res->is_error)    { carp 'HTTP Error: ', $res->message }
+    elsif ($res->code == 301) { carp 'Redirected: ', $res->headers->location if $DEBUG }
+
+    return $res;
 }
 
 1; # Perl is my Igor

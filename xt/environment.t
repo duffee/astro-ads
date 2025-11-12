@@ -19,4 +19,9 @@ Will FAIL in CPANTS
 ####
 FACEPALM
 
+todo "Shouldn't release with debugging turned on" => sub {
+    use Astro::ADS;
+    is $Astro::ADS::DEBUG, 0, 'DEBUG flag is turned off';
+};
+
 done_testing();

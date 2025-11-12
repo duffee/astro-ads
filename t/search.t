@@ -131,4 +131,32 @@ AST
     };
 };
 
+subtest 'BigQuery method' => sub {
+    my @bibcodes = qw(2003NanoL...3..459S 2011Natur.477..207S
+        2006PNAS..103..921S 2011NIMPA.659..106A 2004NanoL...4.1587S
+        2003MaMol..36..553S 2004AdM....16.2049S 2003NanoL...3.1421S
+        2006nucl.ex...1042S 2014ApJ...784...44L);
+
+    $ads->q('*:*');
+    ok my $result = $ads->bigquery( @bibcodes ), 'Makes bigquery call';
+    is $result, object {
+        prop isa => 'Astro::ADS::Result';
+
+        field q  => '*:*';
+        field fl => 'bibcode';
+
+        field rows => 10;
+        field start => 0;
+        field numFound => 10;
+        field numFoundExact => T();
+        field docs => array {
+            item 9 => check_isa('Astro::ADS::Paper');
+            end();
+        };
+
+        end();
+    };
+
+};
+
 done_testing();
