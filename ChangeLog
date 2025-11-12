@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+1.92      2025 Nov 12
 ===
 * bug in condition check on number of rows fixed by @esabol (Ed Sabol)
 * added query_tree method to get AST of query
