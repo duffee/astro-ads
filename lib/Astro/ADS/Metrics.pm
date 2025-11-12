@@ -101,7 +101,7 @@ Astro::ADS::Metrics - Queries the ADS Metrics endpoint and collects the results
 
 =head1 VERSION
 
-version 1.91
+version 1.92
 
 =head1 SYNOPSIS
 

@@ -66,7 +66,7 @@ Astro::ADS::QTree - A class for the results of a Search Query Tree
 
 =head1 VERSION
 
-version 1.91
+version 1.92
 
 =head1 SYNOPSIS
 

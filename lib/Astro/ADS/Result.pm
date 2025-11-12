@@ -108,7 +108,7 @@ Astro::ADS::Result - A class for the results of a Search
 
 =head1 VERSION
 
-version 1.91
+version 1.92
 
 =head1 SYNOPSIS
 

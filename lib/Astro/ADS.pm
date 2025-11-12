@@ -117,7 +117,7 @@ Astro::ADS - Perl library to connect with the Harvard Astrophysical Data Service
 
 =head1 VERSION
 
-version 1.91
+version 1.92
 
 =head1 SYNOPSIS
 

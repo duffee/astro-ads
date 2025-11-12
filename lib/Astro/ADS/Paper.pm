@@ -82,7 +82,7 @@ Astro::ADS::Paper - A class for holding the document attributes for the results 
 
 =head1 VERSION
 
-version 1.91
+version 1.92
 
 =head1 SYNOPSIS
 
